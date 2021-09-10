@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="public/css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+    <h1>
+    <img src="images/Logo.png" height="100px" width="250px">
+    Personal Website</h1>
+    </header>
+<br>
+
+<nav>
+<a href="index.html">About Me</a> |
+<a href="books.html">Books</a> |
+<a href="interests.html">Interests</a>
+
+</nav>
+<main>
+  <center><h2>Books</h2></center>
+    <table class= "table table-bordered table-striped table-hover">
+        <tr><th>Book Title</th> <th>Author</th><th>Publication Year</th><th>Publisher</th><th>Page Count</th><th>MSRP</th></tr>
+        <tr><td>Alex Ferguson: My Autobiography</td><td>Sir Alex Ferguson</td> <td>2013</td><td>Hodder & Stoughton</td><td>416 Pages</td><td>$17.99</td></tr>
+
+                <tr><td>Aline and the Blue Bottle</td><td>Carolina Ugaz-Morán</td> <td>2019</td><td>CUM Publication</td><td>274 Pages</td><td>$12.29</td></tr>
+
+                        <tr><td>Great Circle</td><td>Maggie Shipstead</td> <td> 2021</td><td>Random House Large Print</td><td>960 Pages</td><td>$17.99</td></tr>
+
+                                <tr><td>The Promise</td><td>Damon Galgut</td> <td> 2021</td><td>Viking</td><td>256 Pages</td><td>$18.99</td></tr>
+
+                                        <tr><td>China Room</td><td>Sunjeev Sahota</td> <td> 2021</td><td>Penguin Random House Audio Publishing Group</td><td>256 Pages</td><td>$23.11</td></tr>
+    </table> <br><br>
+
+    <h3>Add a new book</h3>
+       <form action="action_page.php" method="post class"> 
+          <div class="form-group">
+
+          <label for="t">Book Title</label>
+         <input type="text" class="form-control" id= "t" name="Book Title"><br></div>
+</div>
+<div class="form-group">
+          <label for="A">Author</label>
+  <input type="text" class="form-control" id="A" name="A">
+</div>
+<div class="form-group">
+   <label for="P">Publication Year</label>
+  <input type="text" class="form-control" id="P" name="A"><br>
+</div>
+<div class="form-group">
+   <label for="S">Publisher</label>
+  <input type="text" class="form-control" id="S" name="S"><br>
+</div>
+<div class="form-group">
+   <label for="C">Page Count</label>
+  <input type="text" class="form-control" id="C" name="C"><br>
+</div>
+<div class="form-group">
+   <label for="M">MSRP</label>
+  <input type="text" class="form-control" id="M" name="M"><br>
+  <button type="button" class="btn btn-dark">Submit</button>
+</div>
+  
+       </form>
+</main>
+<hr>
+<footer> Cristiano Ronaldo | 381, Funchal, Madeira | ronaldo.cristiano@example.com</footer>
+  </body>
+</html>
