@@ -29,13 +29,16 @@
                 Country:<strong>{{person.location.country}}</strong><br>  
                 Address:<strong> {{person.location.street.number}}, {{person.location.street.name}} , {{person.location.city}} , {{person.location.state}}</strong><br>
                 Birthdate:<strong>{{prettyBirthday}}</strong><br>
-                  Age:<strong>{{person.dob.age}}</strong><br>
-                  <span>Email:</span><a v-bind:href="'mailto:'+ person.email">{{person.email }}</a><br>
-                  </h2>
-              </div>
-            </div>
-          </main>
-  <footer> Cristiano Ronaldo | 381, Funchal, Madeira | ronaldo.cristiano@example.com </footer>
+                Age:<strong>{{person.dob.age}}</strong><br>
+                <span>Email:</span><a v-bind:href="'mailto:'+ person.email">{{person.email }}</a><br>
+                </h2>
+                <form v-on:submit.prevent="fetchUserData">
+                  <button type="submit">Refresh Page</button>
+                </form>
+  <footer> {{person.name.first}} {{person.name.second}} |  {{person.location.street.number}}, {{person.location.street.name}} , {{person.location.city}} , {{person.location.state}} | {{person.email }} </footer>
+  </div>
+  </div>
+</main>
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <script src="js/index.js"></script>
   </body>
