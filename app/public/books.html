@@ -8,6 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
     <header>
@@ -21,28 +22,39 @@
 <a href="interests.html">Interests</a>
 
 </nav>
+<div id="offerApp">
 <main>
   <center><h2>Books</h2></center>
-    <table class= "table table-bordered table-striped table-hover" id="tb">
+    <table class= "table table-bordered table-striped table-hover">
         <thead><tr><th>Book Title</th> <th>Author</th><th>Publication Year</th><th>Publisher</th><th>Page Count</th><th>MSRP</th></tr></thead>
-        <tr><td>Alex Ferguson: My Autobiography</td><td>Sir Alex Ferguson</td> <td>2013</td><td>Hodder & Stoughton</td><td>416 Pages</td><td>$17.99</td></tr>
+        <tr v-for="book in books">
+          <td>{{book.book_title}}</td>
+          <td>{{book.author}}</td> 
+          <td>{{book.publication_year}}</td>
+          <td>{{book.publisher}}</td>
+          <td>{{book.page_count}}</td>
+          <td>{{book.msrp}}</td>
+          <td>
+          <button type="button" v-on:click="selectBook(book)" class="btn btn-outline-secondary btn-sm">Edit</button>
+          <button type="button" v-on:click="postDeleteBook(book)" class="btn btn-outline-secondary btn-sm">Delete</button>
+          </td>
 
-        <tr><td>Pep Guardiolas Training Sessions</td><td>Pep Guardiola</td> <td>2019</td><td>Soccer Tutor</td><td>274 Pages</td><td>$32.83</td></tr>
+        </tr>
+
+        <!-- <tr><td>Pep Guardiolas Training Sessions</td><td>Pep Guardiola</td> <td>2019</td><td>Soccer Tutor</td><td>274 Pages</td><td>$32.83</td></tr>
 
         <tr><td>Inverting the Pyramid</td><td>Jonathan Wilson</td> <td> 2008</td><td>Orion Publishing Group</td><td>960 Pages</td><td>$16.99</td></tr>
 
         <tr><td>How Soccer Explains the World</td><td>Franklin Foer</td> <td> 2004</td><td>Viking</td><td>356 Pages</td><td>$45.60</td></tr>
 
-        <tr><td>China Room</td><td>Sunjeev Sahota</td> <td> 2021</td><td>Penguin Random House Audio Publishing Group</td><td>256 Pages</td><td>$23.11</td></tr>
+        <tr><td>China Room</td><td>Sunjeev Sahota</td> <td> 2021</td><td>Penguin Random House Audio Publishing Group</td><td>256 Pages</td><td>$23.11</td></tr> -->
     </table> <br><br>
 
     <h3>Add a new book</h3>
-  <form action="action_page.php" method="post class"> 
+  <form v-on:submit.prevent="postBook">> 
   <div class="form-group">
-
   <label for="t">Book Title</label>
   <input type="text" id= "t" name="Book Title"><br></div>
-</div>
 <div class="form-group">
    <label for="A">Author</label>
   <input type="text" id="A" name="A">
@@ -62,11 +74,14 @@
 <div class="form-group">
    <label for="M">MSRP</label>
   <input type="text" id="M" name="M"><br>
-  <button type="button" class="btn btn-dark">Submit</button>
 </div>
-  
-       </form>
+<button type="submit" class="btn btn-primary">{{ selectedBook === null ? "Insert " : "Edit " }} Book</button>
+<button type="submit" class="btn btn-primary"
+  v-if="selectedBook"
+  v-on:click="handleResetEdit"> Cancel Edit </button>
+</form>
 </main>
+</div>
 <hr>
 <footer> Cristiano Ronaldo | 381, Funchal, Madeira | ronaldo.cristiano@example.com</footer>
   </body>
@@ -74,7 +89,8 @@
 
   
   <script>
-    new Tablesort(document.getElementById('tb'));
+    new Tablesort(document.getElementById('offerApp'));
   </script>
+  <script src="js/index.js"></script>
 
 </html>
